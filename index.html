@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Creation AI - Uzun Insho</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364); /* qorong‘i siyoh */
+    color: #eee;
+}
+
+.container {
+    width: 85%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: #1e1e2f; /* qorong‘i blok */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+input, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+input {
+    background: #2a2a3d;
+    color: #fff;
+}
+
+button {
+    background: #4facfe;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00c6ff;
+}
+
+.box {
+    background: #2a2a3d;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 10px;
+    line-height: 1.7;
+    white-space: pre-line;
+    color: #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Creation AI - Insho Yozuvchi ✍️</h1>
+
+    <input type="text" id="topic" placeholder="Mavzu kiriting...">
+
+    <button onclick="generateEssay()">Uzun insho yaratish</button>
+
+    <div id="output" class="box"></div>
+</div>
+
+<script>
+function r(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+}
+
+function paragraph(topic){
+    let s1 = [
+        topic + " inson hayotining ajralmas qismidir.",
+        "Bugungi kunda " + topic + " juda muhim mavzulardan biridir.",
+        "Har bir inson uchun " + topic + " katta ahamiyatga ega."
+    ];
+
+    let s2 = [
+        "Bu mavzu haqida turli fikrlar mavjud.",
+        "Zamonaviy jamiyatda bu tushuncha keng rivojlanmoqda.",
+        "Ko‘pchilik bu masalaga jiddiy qaraydi."
+    ];
+
+    let s3 = [
+        "Shu sababli uni chuqur o‘rganish zarur.",
+        "Natijada inson katta yutuqlarga erishadi.",
+        "Bu esa rivojlanishga yordam beradi."
+    ];
+
+    return r(s1) + " " + r(s2) + " " + r(s3);
+}
+
+function generateEssay(){
+    let topic = document.getElementById("topic").value;
+
+    if(!topic){
+        alert("Mavzu yozing!");
+        return;
+    }
+
+    let essay =
+        paragraph(topic) + "\n\n" +
+        paragraph(topic) + "\n\n" +
+        paragraph(topic) + "\n\n" +
+        paragraph(topic) + "\n\n" +
+        "Xulosa qilib aytganda, " + topic + " hayotimizda muhim o‘rin tutadi va uni anglash zarur.";
+
+    document.getElementById("output").innerText = essay;
+}
+</script>
+
+</body>
+</html>
