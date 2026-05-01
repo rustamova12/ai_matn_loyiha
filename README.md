@@ -1,1 +1,1 @@
-# ai_matn_loyiha
+# ai.matn_loyiha
